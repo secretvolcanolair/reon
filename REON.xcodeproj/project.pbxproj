@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95C499921958760100478987 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C499911958760100478987 /* Foundation.framework */; };
+		95C499941958760100478987 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C499931958760100478987 /* CoreGraphics.framework */; };
+		95C499961958760100478987 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C499951958760100478987 /* UIKit.framework */; };
+		95C499981958760100478987 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C499971958760100478987 /* CoreData.framework */; };
+		95C4999E1958760100478987 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95C4999C1958760100478987 /* InfoPlist.strings */; };
+		95C499A01958760100478987 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C4999F1958760100478987 /* main.m */; };
+		95C499A41958760100478987 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C499A31958760100478987 /* AppDelegate.m */; };
+		95C499A71958760100478987 /* REON.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95C499A51958760100478987 /* REON.xcdatamodeld */; };
+		95C499A91958760100478987 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95C499A81958760100478987 /* Images.xcassets */; };
+		95C499B01958760100478987 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C499AF1958760100478987 /* XCTest.framework */; };
+		95C499B11958760100478987 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C499911958760100478987 /* Foundation.framework */; };
+		95C499B21958760100478987 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C499951958760100478987 /* UIKit.framework */; };
+		95C499B31958760100478987 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C499971958760100478987 /* CoreData.framework */; };
+		95C499BB1958760100478987 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95C499B91958760100478987 /* InfoPlist.strings */; };
+		95C499BD1958760100478987 /* REONTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C499BC1958760100478987 /* REONTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95C499B41958760100478987 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C499861958760100478987 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95C4998D1958760100478987;
+			remoteInfo = REON;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		95C4998E1958760100478987 /* REON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REON.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95C499911958760100478987 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		95C499931958760100478987 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		95C499951958760100478987 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		95C499971958760100478987 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		95C4999B1958760100478987 /* REON-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "REON-Info.plist"; sourceTree = "<group>"; };
+		95C4999D1958760100478987 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		95C4999F1958760100478987 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		95C499A11958760100478987 /* REON-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "REON-Prefix.pch"; sourceTree = "<group>"; };
+		95C499A21958760100478987 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		95C499A31958760100478987 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		95C499A61958760100478987 /* REON.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = REON.xcdatamodel; sourceTree = "<group>"; };
+		95C499A81958760100478987 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		95C499AE1958760100478987 /* REONTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = REONTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95C499AF1958760100478987 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		95C499B81958760100478987 /* REONTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "REONTests-Info.plist"; sourceTree = "<group>"; };
+		95C499BA1958760100478987 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		95C499BC1958760100478987 /* REONTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = REONTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95C4998B1958760100478987 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C499941958760100478987 /* CoreGraphics.framework in Frameworks */,
+				95C499981958760100478987 /* CoreData.framework in Frameworks */,
+				95C499961958760100478987 /* UIKit.framework in Frameworks */,
+				95C499921958760100478987 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95C499AB1958760100478987 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C499B01958760100478987 /* XCTest.framework in Frameworks */,
+				95C499B31958760100478987 /* CoreData.framework in Frameworks */,
+				95C499B21958760100478987 /* UIKit.framework in Frameworks */,
+				95C499B11958760100478987 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95C499851958760100478987 = {
+			isa = PBXGroup;
+			children = (
+				95C499991958760100478987 /* REON */,
+				95C499B61958760100478987 /* REONTests */,
+				95C499901958760100478987 /* Frameworks */,
+				95C4998F1958760100478987 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95C4998F1958760100478987 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95C4998E1958760100478987 /* REON.app */,
+				95C499AE1958760100478987 /* REONTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95C499901958760100478987 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95C499911958760100478987 /* Foundation.framework */,
+				95C499931958760100478987 /* CoreGraphics.framework */,
+				95C499951958760100478987 /* UIKit.framework */,
+				95C499971958760100478987 /* CoreData.framework */,
+				95C499AF1958760100478987 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95C499991958760100478987 /* REON */ = {
+			isa = PBXGroup;
+			children = (
+				95C499A21958760100478987 /* AppDelegate.h */,
+				95C499A31958760100478987 /* AppDelegate.m */,
+				95C499A81958760100478987 /* Images.xcassets */,
+				95C499A51958760100478987 /* REON.xcdatamodeld */,
+				95C4999A1958760100478987 /* Supporting Files */,
+			);
+			path = REON;
+			sourceTree = "<group>";
+		};
+		95C4999A1958760100478987 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95C4999B1958760100478987 /* REON-Info.plist */,
+				95C4999C1958760100478987 /* InfoPlist.strings */,
+				95C4999F1958760100478987 /* main.m */,
+				95C499A11958760100478987 /* REON-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95C499B61958760100478987 /* REONTests */ = {
+			isa = PBXGroup;
+			children = (
+				95C499BC1958760100478987 /* REONTests.m */,
+				95C499B71958760100478987 /* Supporting Files */,
+			);
+			path = REONTests;
+			sourceTree = "<group>";
+		};
+		95C499B71958760100478987 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95C499B81958760100478987 /* REONTests-Info.plist */,
+				95C499B91958760100478987 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95C4998D1958760100478987 /* REON */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95C499C01958760100478987 /* Build configuration list for PBXNativeTarget "REON" */;
+			buildPhases = (
+				95C4998A1958760100478987 /* Sources */,
+				95C4998B1958760100478987 /* Frameworks */,
+				95C4998C1958760100478987 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = REON;
+			productName = REON;
+			productReference = 95C4998E1958760100478987 /* REON.app */;
+			productType = "com.apple.product-type.application";
+		};
+		95C499AD1958760100478987 /* REONTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95C499C31958760100478987 /* Build configuration list for PBXNativeTarget "REONTests" */;
+			buildPhases = (
+				95C499AA1958760100478987 /* Sources */,
+				95C499AB1958760100478987 /* Frameworks */,
+				95C499AC1958760100478987 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95C499B51958760100478987 /* PBXTargetDependency */,
+			);
+			name = REONTests;
+			productName = REONTests;
+			productReference = 95C499AE1958760100478987 /* REONTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95C499861958760100478987 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = OWWS;
+				TargetAttributes = {
+					95C499AD1958760100478987 = {
+						TestTargetID = 95C4998D1958760100478987;
+					};
+				};
+			};
+			buildConfigurationList = 95C499891958760100478987 /* Build configuration list for PBXProject "REON" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 95C499851958760100478987;
+			productRefGroup = 95C4998F1958760100478987 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95C4998D1958760100478987 /* REON */,
+				95C499AD1958760100478987 /* REONTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95C4998C1958760100478987 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C4999E1958760100478987 /* InfoPlist.strings in Resources */,
+				95C499A91958760100478987 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95C499AC1958760100478987 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C499BB1958760100478987 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95C4998A1958760100478987 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C499A71958760100478987 /* REON.xcdatamodeld in Sources */,
+				95C499A41958760100478987 /* AppDelegate.m in Sources */,
+				95C499A01958760100478987 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95C499AA1958760100478987 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C499BD1958760100478987 /* REONTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95C499B51958760100478987 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95C4998D1958760100478987 /* REON */;
+			targetProxy = 95C499B41958760100478987 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		95C4999C1958760100478987 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95C4999D1958760100478987 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		95C499B91958760100478987 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95C499BA1958760100478987 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95C499BE1958760100478987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		95C499BF1958760100478987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95C499C11958760100478987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "REON/REON-Prefix.pch";
+				INFOPLIST_FILE = "REON/REON-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		95C499C21958760100478987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "REON/REON-Prefix.pch";
+				INFOPLIST_FILE = "REON/REON-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		95C499C41958760100478987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/REON.app/REON";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "REON/REON-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "REONTests/REONTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		95C499C51958760100478987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/REON.app/REON";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "REON/REON-Prefix.pch";
+				INFOPLIST_FILE = "REONTests/REONTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95C499891958760100478987 /* Build configuration list for PBXProject "REON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95C499BE1958760100478987 /* Debug */,
+				95C499BF1958760100478987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95C499C01958760100478987 /* Build configuration list for PBXNativeTarget "REON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95C499C11958760100478987 /* Debug */,
+				95C499C21958760100478987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		95C499C31958760100478987 /* Build configuration list for PBXNativeTarget "REONTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95C499C41958760100478987 /* Debug */,
+				95C499C51958760100478987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		95C499A51958760100478987 /* REON.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				95C499A61958760100478987 /* REON.xcdatamodel */,
+			);
+			currentVersion = 95C499A61958760100478987 /* REON.xcdatamodel */;
+			path = REON.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 95C499861958760100478987 /* Project object */;
+}
