@@ -48,15 +48,30 @@
         //--- cross references with current contact objects phone numbers
         for(CDMeets *mo in mutableFetchResults){
             
-            for(NSString *phoneString in [obj phoneArray]){
-                
-                if( [phoneString isEqualToString:[mo cardPhonecell]] || [phoneString isEqualToString:[mo cardPhoneother]] || [phoneString isEqualToString:[mo cardPhonework]] ){
-                    
-                        foundMeetObject = mo;
-                        shouldAddNewCoreDataObject = NO;
-                        break;
-                }
+            NSString *firstName = [mo cardFirstname];
+            NSString *lastName = [mo cardLastname];
             
+            NSString *objectCompositeName = [obj compositeName];
+            NSRange nameWithinCompositeRange;
+            
+            //--- Build range depending on if the last name is available
+            if(firstName != Nil && lastName != Nil){
+                
+                nameWithinCompositeRange = [objectCompositeName rangeOfString:[NSString stringWithFormat:@"%@ %@", firstName, lastName]];
+                
+            }else{
+            
+                nameWithinCompositeRange = [objectCompositeName rangeOfString:firstName];
+            
+            }
+            
+            NSLog(@"Search: %@ %@ (Object: %@)", [mo cardFirstname], [mo cardLastname], [obj compositeName]);
+            
+            //--- Check for the location of the composite range
+            if(nameWithinCompositeRange.location != NSNotFound ){
+                foundMeetObject = mo;
+                shouldAddNewCoreDataObject = NO;
+                break;
             }
             
         }

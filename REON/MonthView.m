@@ -28,6 +28,8 @@
     
     [_collectionView registerNib:[UINib nibWithNibName:@"MonthCell" bundle:nil] forCellWithReuseIdentifier:@"MonthCell"];
     
+    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Blank"];
+    
 }
 
 -(void)loadMonth: (int)m andYear: (int)y withEvents: (NSArray *)arr{
@@ -45,36 +47,49 @@
 #pragma mark CollectionView Delegate
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return totalDaysInMonth;
+    
+    totalBlankDays = [self checkDayOfFirstDayOfMonth]-1;
+    
+    return totalDaysInMonth + totalBlankDays;
+    
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    MonthCell *cell = (MonthCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"MonthCell" forIndexPath:indexPath];
+    if(indexPath.row >= totalBlankDays){
     
-    cell.dayLabel.text = [NSString stringWithFormat:@"%i", (int)(indexPath.row+1)];
-    
-    for(ABContact *contact in [ABContactsHelper contacts]){
+        MonthCell *cell = (MonthCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"MonthCell" forIndexPath:indexPath];
         
-        NSDate *date = [contact creationDate];
-        NSCalendar *gregorian = [NSCalendar currentCalendar];
-        NSDateComponents *dateComponents = [gregorian components:(NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit) fromDate:date];
+        cell.dayLabel.text = [NSString stringWithFormat:@"%i", (int)(indexPath.row+1)-totalBlankDays];
         
-        NSInteger monthInteger = [dateComponents month];
-        NSInteger dayInteger = [dateComponents day];
-        NSInteger yearInteger = [dateComponents year];
-        
-        //--- Event day
-        if(monthInteger == _month && dayInteger == (indexPath.row+1) && yearInteger == _year){
-            [cell setAsEventDay];
-            break;
-        }else{
-            [cell.eventIcon setHidden:YES];
+        for(ABContact *contact in [ABContactsHelper contacts]){
+            
+            NSDate *date = [contact creationDate];
+            NSCalendar *gregorian = [NSCalendar currentCalendar];
+            NSDateComponents *dateComponents = [gregorian components:(NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit) fromDate:date];
+            
+            NSInteger monthInteger = [dateComponents month];
+            NSInteger dayInteger = [dateComponents day];
+            NSInteger yearInteger = [dateComponents year];
+            
+            //--- Event day
+            if(monthInteger == _month && dayInteger == (indexPath.row+1) && yearInteger == _year){
+                [cell setAsEventDay];
+                break;
+            }else{
+                [cell.eventIcon setHidden:YES];
+            }
+            
         }
         
+        return cell;
+        
+    }else{
+        
+        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Blank" forIndexPath:indexPath];
+        return cell;
+        
     }
-    
-    return cell;
     
 }
 
@@ -93,8 +108,7 @@
         NSInteger yearInteger = [dateComponents year];
         
         //--- Event day
-        if(monthInteger == _month && dayInteger == (indexPath.row+1) && yearInteger == _year){
-            
+        if(monthInteger == _month && dayInteger == ((indexPath.row+1)-totalBlankDays) && yearInteger == _year){
             [returnEventArray addObject:contact];
         }
         
@@ -106,6 +120,33 @@
 }
 
 #pragma mark Duplicated Utility Functions
+
+-(int) checkDayOfFirstDayOfMonth{
+    
+    //--- Convert String to Date
+    NSString *dateString = [NSString stringWithFormat:@"%i-%i-01 01:00:00 AM", _year, _month];
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd hh:mm:ss a"];
+    NSDate *myDate = [df dateFromString: dateString];
+    
+    //--- Convert date to weekday EEEE
+    [df setDateFormat:@"EEEE"];
+    NSString *weekdayLabel = [df stringFromDate:myDate];
+    
+    int weekdayInt = 0;
+    
+    if([weekdayLabel isEqualToString:@"Sunday"]) weekdayInt = 1;
+    else if([weekdayLabel isEqualToString:@"Monday"]) weekdayInt = 2;
+    else if([weekdayLabel isEqualToString:@"Tuesday"]) weekdayInt = 3;
+    else if([weekdayLabel isEqualToString:@"Wednesday"]) weekdayInt = 4;
+    else if([weekdayLabel isEqualToString:@"Thursday"]) weekdayInt = 5;
+    else if([weekdayLabel isEqualToString:@"Friday"]) weekdayInt = 6;
+    else weekdayInt = 7;
+    
+    return weekdayInt;
+    
+}
 
 -(NSString *) intToMonthName: (int)monthInteger isAbbrev: (BOOL)isAbbrev{
     

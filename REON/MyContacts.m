@@ -106,8 +106,13 @@
     if(realRowCount > 0){
         
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        ABContact *selectedContact;
         
-        ABContact *selectedContact = [[ABContactsHelper contacts] objectAtIndex:indexPath.row];
+        if(contactsArray){
+            selectedContact = [contactsArray objectAtIndex:indexPath.row];
+        }else{
+            selectedContact = [[ABContactsHelper contacts] objectAtIndex:indexPath.row];
+        }
         
         MeetCard *meetCardVC = [[MeetCard alloc] initWithABContactObject:selectedContact];
         [self.navigationController presentViewController:meetCardVC animated:YES completion:Nil];

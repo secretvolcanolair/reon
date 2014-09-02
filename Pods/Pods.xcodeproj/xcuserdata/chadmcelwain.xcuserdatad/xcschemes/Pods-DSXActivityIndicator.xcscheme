@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3C8CE1B056E84232A17A5EB9"
+               BlueprintIdentifier = "B4D52FBC941D4AF3A616A7E3"
                BuildableName = "libPods-DSXActivityIndicator.a"
                BlueprintName = "Pods-DSXActivityIndicator"
                ReferencedContainer = "container:Pods.xcodeproj">

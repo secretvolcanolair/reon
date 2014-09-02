@@ -17,6 +17,7 @@
     NSArray *eventArray;
     int totalDaysInMonth;
     id<RCalendarDelegate>delegate;
+    int totalBlankDays;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *monthLabel;
