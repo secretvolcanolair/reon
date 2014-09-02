@@ -13,10 +13,13 @@
 #import "PhoneCell.h"
 #import "EmailCell.h"
 #import "CDMeets.h"
+#import <ABContactsHelper.h>
 
 @interface MeetCard : DefaultNavigationController
 
 @property (strong, nonatomic) CDMeets *meetObject;
+
+-(id) initWithABContactObject: (ABContact *)obj;
 -(id) initWithCDMeetObject: (CDMeets *)object;
 
 @end

@@ -31,7 +31,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="AEc-XB-dP6" customClass="peopleCircle">
-                                        <rect key="frame" x="0.0" y="0.0" width="105.33000183105469" height="105.33000183105469"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
@@ -335,7 +335,9 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="When We Met" id="hrb-Wy-RQM"/>
+                    <navigationItem key="navigationItem" title="When We Met" id="hrb-Wy-RQM">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="6nO-ic-sf1"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="yearLabel" destination="Aty-Y2-kD9" id="z5t-DF-Wux"/>
                         <segue destination="UO9-5F-OVM" kind="push" identifier="monthSegue" id="Lll-rk-X3D"/>
@@ -356,10 +358,27 @@
                     <view key="view" contentMode="scaleToFill" id="SsA-2w-FOD">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5O-5P-JxA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="S5O-5P-JxA" firstAttribute="top" secondItem="cMf-Vf-Pwb" secondAttribute="bottom" id="KmM-te-nyF"/>
+                            <constraint firstItem="S5O-5P-JxA" firstAttribute="leading" secondItem="SsA-2w-FOD" secondAttribute="leading" id="NGW-1N-URR"/>
+                            <constraint firstItem="zES-cK-PqS" firstAttribute="top" secondItem="S5O-5P-JxA" secondAttribute="bottom" id="aAh-aB-fuM"/>
+                            <constraint firstAttribute="trailing" secondItem="S5O-5P-JxA" secondAttribute="trailing" id="zOn-qE-z0l"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="When We Met" id="ZQA-6d-hks"/>
+                    <navigationItem key="navigationItem" title="When We Met" id="ZQA-6d-hks">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="pvg-He-a90"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="scrollView" destination="S5O-5P-JxA" id="qX3-lX-aAm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bf4-Qo-rpf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -488,6 +507,9 @@
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Qst-Cl-AYR" kind="push" identifier="contactsSegueTwo" id="MbW-li-tA2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -505,7 +527,9 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Search" id="JST-eC-c8i"/>
+                    <navigationItem key="navigationItem" title="Search" id="JST-eC-c8i">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="8lG-L1-bqj"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRi-1O-OYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -863,14 +887,22 @@
         <!--My Contacts - My Contacts-->
         <scene sceneID="ftD-Wf-Xhy">
             <objects>
-                <tableViewController id="Qst-Cl-AYR" customClass="MyContacts" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="myContactsVC" id="Qst-Cl-AYR" customClass="MyContacts" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" id="SW9-3O-XvS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="dXl-4J-48B">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Qst-Cl-AYR" id="2jg-D4-ZPb"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoCell" id="ch1-1f-pRo" customClass="pendingRequestCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="130" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ch1-1f-pRo" id="k8J-1a-YWk">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
@@ -890,34 +922,27 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Umf-CR-TE1" customClass="pendingRequestCell">
-                                <rect key="frame" x="0.0" y="161" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="205" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Umf-CR-TE1" id="l3D-Hf-bEo">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwc-9F-Nge">
-                                            <rect key="frame" x="78" y="20" width="222" height="21"/>
+                                            <rect key="frame" x="78" y="26" width="222" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Njd-vO-wAv">
-                                            <rect key="frame" x="78" y="39" width="222" height="15"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPA-Ba-RoE">
                                             <rect key="frame" x="5" y="4" width="65" height="65"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="cardLabel" destination="Njd-vO-wAv" id="Gri-cS-PX2"/>
                                     <outlet property="nameLabel" destination="nwc-9F-Nge" id="a1K-bM-lAI"/>
                                     <outlet property="userImage" destination="RPA-Ba-RoE" id="Cnj-wn-2k2"/>
                                 </connections>
@@ -951,4 +976,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="MbW-li-tA2"/>
+    </inferredMetricsTieBreakers>
 </document>

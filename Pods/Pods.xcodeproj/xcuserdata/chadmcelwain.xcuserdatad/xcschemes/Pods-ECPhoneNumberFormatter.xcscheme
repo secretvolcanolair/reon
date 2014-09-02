@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E64767090F94468294EAD57A"
+               BlueprintIdentifier = "A3FDD244B95F404E8009C070"
                BuildableName = "libPods-ECPhoneNumberFormatter.a"
                BlueprintName = "Pods-ECPhoneNumberFormatter"
                ReferencedContainer = "container:Pods.xcodeproj">

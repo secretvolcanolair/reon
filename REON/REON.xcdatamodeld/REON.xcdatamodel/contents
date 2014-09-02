@@ -23,6 +23,7 @@
     </entity>
     <entity name="CDFBFriends" syncable="YES"/>
     <entity name="CDMeets" representedClassName="CDMeets" syncable="YES">
+        <attribute name="addedFromAdressbook" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="cardCompany" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cardEmailhome" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cardEmailother" optional="YES" attributeType="String" syncable="YES"/>
@@ -57,7 +58,7 @@
     </entity>
     <elements>
         <element name="CDCard" positionX="-308" positionY="45" width="128" height="328"/>
-        <element name="CDMeets" positionX="-162" positionY="45" width="128" height="508"/>
         <element name="CDFBFriends" positionX="-234" positionY="198" width="128" height="45"/>
+        <element name="CDMeets" positionX="-162" positionY="45" width="128" height="525"/>
     </elements>
 </model>

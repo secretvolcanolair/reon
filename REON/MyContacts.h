@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "CDMeets.h"
-#import "meetConfirmation.h"
 
-@interface MyContacts : UITableViewController<NSFetchedResultsControllerDelegate, UIAlertViewDelegate, meetConfirmationDelegate>{
+@interface MyContacts : UITableViewController<UIAlertViewDelegate, UISearchBarDelegate>{
     UIAlertView *requestAlertView;
     CDMeets *requestObject;
-    meetConfirmation *meetConfirmationView;
     NSInteger realRowCount;
 }
 
 @property(strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSMutableArray *contactsArray;
+@property BOOL showCloseButton;
 
 @end

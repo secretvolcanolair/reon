@@ -2,61 +2,46 @@
 //  CDMeets.m
 //  REON
 //
-//  Created by Robert Kehoe on 7/22/14.
+//  Created by Robert Kehoe on 9/1/14.
 //  Copyright (c) 2014 OWWS. All rights reserved.
 //
 
 #import "CDMeets.h"
 
 
-
 @implementation CDMeets
 
+@dynamic cardCompany;
 @dynamic cardEmailhome;
 @dynamic cardEmailother;
 @dynamic cardEmailwork;
+@dynamic cardFacebook;
 @dynamic cardFirstname;
 @dynamic cardID;
 @dynamic cardImage;
+@dynamic cardInstagram;
 @dynamic cardLabel;
 @dynamic cardLastname;
 @dynamic cardLat;
+@dynamic cardLinkedIn;
 @dynamic cardLon;
 @dynamic cardPhonecell;
 @dynamic cardPhoneother;
 @dynamic cardPhonework;
 @dynamic cardPrefix;
-@dynamic cardTitle;
 @dynamic cardSuffix;
-@dynamic dateAdded;
-@dynamic cardInstagram;
-@dynamic cardCompany;
-@dynamic cardFacebook;
-@dynamic cardLinkedIn;
+@dynamic cardTitle;
 @dynamic cardTwitter;
-@dynamic meet_id;
-@dynamic status;
+@dynamic dateAdded;
 @dynamic goldStar;
+@dynamic meet_id;
 @dynamic redStar;
-@dynamic showLinkedIn;
 @dynamic showFacebook;
-@dynamic showTwitter;
 @dynamic showInstagram;
+@dynamic showLinkedIn;
 @dynamic showSalesforce;
-
-
-- (NSString *)title {
-    return self.cardFirstname;
-}
-- (NSString *)subtitle {
-    return self.cardCompany;
-}
-- (CLLocationCoordinate2D)coordinate {
-    CLLocationCoordinate2D coord;
-    coord.latitude = [self.cardLat doubleValue];
-    coord.longitude = [self.cardLon doubleValue];
-    return coord;
-}
-
+@dynamic showTwitter;
+@dynamic status;
+@dynamic addedFromAdressbook;
 
 @end

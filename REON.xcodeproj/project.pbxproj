@@ -58,8 +58,14 @@
 		951FCA4019993EFE0078BA52 /* Splash.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FCA3F19993EFE0078BA52 /* Splash.m */; };
 		9521F13F197D96EB001A078C /* CDCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9521F13E197D96EB001A078C /* CDCard.m */; };
 		9521F145197EBA6E001A078C /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = 9521F144197EBA6E001A078C /* Star.m */; };
-		9521F14D197ECCCF001A078C /* CDMeets.m in Sources */ = {isa = PBXBuildFile; fileRef = 9521F14C197ECCCF001A078C /* CDMeets.m */; };
 		952AD5BF1986B89700A04F7C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952AD5BE1986B89700A04F7C /* QuartzCore.framework */; };
+		952C01D219B398440081523B /* MonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 952C01D119B398440081523B /* MonthView.m */; };
+		952C01D419B3986A0081523B /* MonthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952C01D319B3986A0081523B /* MonthView.xib */; };
+		952C01D719B39B840081523B /* MonthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 952C01D619B39B840081523B /* MonthCell.m */; };
+		952C01D919B39B990081523B /* MonthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 952C01D819B39B990081523B /* MonthCell.xib */; };
+		952C01DC19B39C7B0081523B /* r_circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 952C01DA19B39C7B0081523B /* r_circle.jpg */; };
+		952C01DD19B39C7B0081523B /* r_circle@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 952C01DB19B39C7B0081523B /* r_circle@2x.jpg */; };
+		952C01E019B4AE460081523B /* CDMeets.m in Sources */ = {isa = PBXBuildFile; fileRef = 952C01DF19B4AE460081523B /* CDMeets.m */; };
 		95401BF019A78A22009A3B83 /* SACalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95401BEF19A78A22009A3B83 /* SACalendarCell.xib */; };
 		95401BFB19A7CFF7009A3B83 /* SmallMonthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95401BFA19A7CFF7009A3B83 /* SmallMonthCell.m */; };
 		95401BFE19A7D964009A3B83 /* TeenyDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95401BFD19A7D964009A3B83 /* TeenyDayCell.m */; };
@@ -238,9 +244,17 @@
 		9521F144197EBA6E001A078C /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
 		9521F146197EC125001A078C /* star_gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_gold.png; sourceTree = "<group>"; };
 		9521F147197EC125001A078C /* star_gold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_gold@2x.png"; sourceTree = "<group>"; };
-		9521F14B197ECCCF001A078C /* CDMeets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMeets.h; sourceTree = "<group>"; };
-		9521F14C197ECCCF001A078C /* CDMeets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMeets.m; sourceTree = "<group>"; };
 		952AD5BE1986B89700A04F7C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		952C01D019B398440081523B /* MonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthView.h; sourceTree = "<group>"; };
+		952C01D119B398440081523B /* MonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthView.m; sourceTree = "<group>"; };
+		952C01D319B3986A0081523B /* MonthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthView.xib; sourceTree = "<group>"; };
+		952C01D519B39B840081523B /* MonthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCell.h; sourceTree = "<group>"; };
+		952C01D619B39B840081523B /* MonthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCell.m; sourceTree = "<group>"; };
+		952C01D819B39B990081523B /* MonthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthCell.xib; sourceTree = "<group>"; };
+		952C01DA19B39C7B0081523B /* r_circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = r_circle.jpg; sourceTree = "<group>"; };
+		952C01DB19B39C7B0081523B /* r_circle@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "r_circle@2x.jpg"; sourceTree = "<group>"; };
+		952C01DE19B4AE460081523B /* CDMeets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMeets.h; sourceTree = "<group>"; };
+		952C01DF19B4AE460081523B /* CDMeets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMeets.m; sourceTree = "<group>"; };
 		95401BEF19A78A22009A3B83 /* SACalendarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SACalendarCell.xib; sourceTree = "<group>"; };
 		95401BF919A7CFF7009A3B83 /* SmallMonthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallMonthCell.h; sourceTree = "<group>"; };
 		95401BFA19A7CFF7009A3B83 /* SmallMonthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallMonthCell.m; sourceTree = "<group>"; };
@@ -476,6 +490,12 @@
 				95401BFA19A7CFF7009A3B83 /* SmallMonthCell.m */,
 				95401BFC19A7D964009A3B83 /* TeenyDayCell.h */,
 				95401BFD19A7D964009A3B83 /* TeenyDayCell.m */,
+				952C01D019B398440081523B /* MonthView.h */,
+				952C01D119B398440081523B /* MonthView.m */,
+				952C01D319B3986A0081523B /* MonthView.xib */,
+				952C01D519B39B840081523B /* MonthCell.h */,
+				952C01D619B39B840081523B /* MonthCell.m */,
+				952C01D819B39B990081523B /* MonthCell.xib */,
 			);
 			name = RCalendar;
 			sourceTree = "<group>";
@@ -562,9 +582,9 @@
 		95A2B4361959FD4100EB2642 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				952C01DE19B4AE460081523B /* CDMeets.h */,
+				952C01DF19B4AE460081523B /* CDMeets.m */,
 				95C499A51958760100478987 /* REON.xcdatamodeld */,
-				9521F14B197ECCCF001A078C /* CDMeets.h */,
-				9521F14C197ECCCF001A078C /* CDMeets.m */,
 				9521F13D197D96EB001A078C /* CDCard.h */,
 				9521F13E197D96EB001A078C /* CDCard.m */,
 			);
@@ -705,6 +725,8 @@
 				9515E4FB197826F40055383B /* Social Icons */,
 				9515E4F2197825790055383B /* Icons */,
 				9515E4E5197824710055383B /* Star Icons */,
+				952C01DA19B39C7B0081523B /* r_circle.jpg */,
+				952C01DB19B39C7B0081523B /* r_circle@2x.jpg */,
 				956121BA19A50E000029BA70 /* map_search.png */,
 				956121BB19A50E010029BA70 /* map_search@2x.png */,
 				4E226AF1198ABDDF00F78043 /* minireonlogo.png */,
@@ -896,14 +918,17 @@
 				4E226AFB198ABDDF00F78043 /* whenicon.png in Resources */,
 				95C499DA1958834000478987 /* contact-card-red@2x.png in Resources */,
 				9515E50C197827070055383B /* social_salesforce.jpg in Resources */,
+				952C01DD19B39C7B0081523B /* r_circle@2x.jpg in Resources */,
 				9515E4ED197824800055383B /* star_empty@2x.png in Resources */,
 				9515E4F8197825840055383B /* icon_email@2x.jpg in Resources */,
 				951FCA3D199939740078BA52 /* Register.storyboard in Resources */,
 				956121C819A51B880029BA70 /* search_map@2x.png in Resources */,
+				952C01D419B3986A0081523B /* MonthView.xib in Resources */,
 				95C499D019587FC900478987 /* toc@2x.png in Resources */,
 				954E9B55198282E100F4F29F /* icon_lock.jpg in Resources */,
 				4E226AF9198ABDDF00F78043 /* namesandtexticon.png in Resources */,
 				95B63DC11974B8FF00639D7A /* icon_80@2x.png in Resources */,
+				952C01DC19B39C7B0081523B /* r_circle.jpg in Resources */,
 				954E9B58198282E100F4F29F /* icon_pencil@2x.jpg in Resources */,
 				956121BD19A50E010029BA70 /* map_search@2x.png in Resources */,
 				954E9B53198282E100F4F29F /* icon_envelope.jpg in Resources */,
@@ -917,6 +942,7 @@
 				95C499C71958762400478987 /* General.storyboard in Resources */,
 				954E9B52198282E100F4F29F /* colorful_line@2x.jpg in Resources */,
 				956121BC19A50E010029BA70 /* map_search.png in Resources */,
+				952C01D919B39B990081523B /* MonthCell.xib in Resources */,
 				95C499CE19587FC900478987 /* search@2x.png in Resources */,
 				9515E4EC197824800055383B /* star_empty.png in Resources */,
 				95C499DC1958834000478987 /* drag@2x.png in Resources */,
@@ -1018,13 +1044,13 @@
 				954E9B6619828AE200F4F29F /* Register.m in Sources */,
 				950E047B199F99DC00250B29 /* SACalendar.m in Sources */,
 				950E0479199F99DC00250B29 /* DateUtil.m in Sources */,
+				952C01D219B398440081523B /* MonthView.m in Sources */,
 				4E36C4451991614100C6E049 /* MapPin.m in Sources */,
 				95F0619019759C6A009B719D /* pendingRequests.m in Sources */,
 				950E047C199F99DC00250B29 /* SACalendarCell.m in Sources */,
 				95F0618D19759BC6009B719D /* pendingRequestCell.m in Sources */,
 				956382591987DADD00247693 /* IdentityCell.m in Sources */,
 				95A2B4351959F82A00EB2642 /* NewCard.m in Sources */,
-				9521F14D197ECCCF001A078C /* CDMeets.m in Sources */,
 				9521F13F197D96EB001A078C /* CDCard.m in Sources */,
 				95401BFB19A7CFF7009A3B83 /* SmallMonthCell.m in Sources */,
 				956382621987DAFF00247693 /* EmailCell.m in Sources */,
@@ -1035,8 +1061,10 @@
 				4E36C442199138CD00C6E049 /* WhereSearch.m in Sources */,
 				9561B484195B5FA4003BC739 /* broadcast.m in Sources */,
 				954E9B6F1982C98D00F4F29F /* RegistrationController.m in Sources */,
+				952C01D719B39B840081523B /* MonthCell.m in Sources */,
 				954731FD198A82F800F7330B /* MyContacts.m in Sources */,
 				9563825F1987DAF500247693 /* PhoneCell.m in Sources */,
+				952C01E019B4AE460081523B /* CDMeets.m in Sources */,
 				95C499E61958847A00478987 /* Card.m in Sources */,
 				950E047F199F9A8800250B29 /* WhenSearch.m in Sources */,
 				95CACAF119AF9A1000166A51 /* WhenSearchMonthView.m in Sources */,

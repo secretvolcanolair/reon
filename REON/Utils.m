@@ -328,6 +328,7 @@ static NSString *apiEndpoint = @"http://api.reon.social/index2.php";
             person.firstname = [meetObject cardFirstname];
             person.lastname = [meetObject cardLastname];
             person.organization = [meetObject cardCompany];
+            person.jobtitle = [meetObject cardTitle];
             
             //--- Set all phone numbers
             person.phoneDictionaries = [NSMutableArray arrayWithObjects:

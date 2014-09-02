@@ -11,6 +11,7 @@
 #import "pendingRequestCell.h"
 #import "Utils.h"
 #import "MeetCard.h"
+#import <ABContactsHelper.h>
 
 @interface MyContacts ()
 
@@ -19,76 +20,54 @@
 @implementation MyContacts
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize managedObjectContext;
+@synthesize contactsArray;
+@synthesize showCloseButton;
 
--(void)viewDidLoad{
+-(void)viewWillAppear:(BOOL)animated{
     
-    [super viewDidLoad];
+    if(!showCloseButton){
+        showCloseButton = NO;
+    }
     
-    NSError *error;
-	if (![[self fetchedResultsController] performFetch:&error]) {
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	}
+    if(showCloseButton){
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(closeModal)];
+    }
     
 }
 
-#pragma mark NSFetchedResultController
-
--(NSFetchedResultsController *) fetchedResultsController{
-    
-    //--- Get Object Context
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    managedObjectContext = [appDelegate managedObjectContext];
-    
-    if(!_fetchedResultsController){
-        
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        NSEntityDescription *meets = [NSEntityDescription entityForName:@"CDMeets" inManagedObjectContext:managedObjectContext];
-        
-        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"status = 2"];
-        [request setPredicate:filterPredicate];
-        
-        [request setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"meet_id" ascending:NO]]];
-        [request setEntity:meets];
-        
-        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:Nil cacheName:Nil];
-        _fetchedResultsController.delegate = self;
-        
-    }
-    
-    return _fetchedResultsController;
-    
+-(void) closeModal{
+    [self dismissViewControllerAnimated:YES completion:Nil];
 }
 
 #pragma mark TableView Data source & Delegates
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    id sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
-    NSInteger totalRows = [sectionInfo numberOfObjects];
-    realRowCount = totalRows;
+    int totalRows;
     
-    if(totalRows==0){
-        totalRows = 1;
+    if(!contactsArray){
+    
+        totalRows = (int)[[ABContactsHelper contacts] count];
+        
+        realRowCount = totalRows;
+        
+        if(totalRows==0){
+            totalRows = 1;
+        }
+        
+    }else{
+        
+        totalRows = (int)[contactsArray count];
+        
+        realRowCount = totalRows;
+        
+        if(totalRows==0){
+            totalRows = 1;
+        }
+        
     }
     
     return totalRows;
-    
-}
-
-- (void)configureCell:(pendingRequestCell *)cell atIndexPath:(NSIndexPath *)indexPath{
-    
-    CDMeets *object = [_fetchedResultsController objectAtIndexPath:indexPath];
-    
-    //--- Card name
-    if([[object cardFirstname] length] > 0||[[object cardLastname] length] > 0){
-        [cell.nameLabel setText:[NSString stringWithFormat:@"%@ %@", [object cardFirstname], [object cardLastname]]];
-    }else{
-        [cell.nameLabel setText:@"N/A"];
-    }
-    
-    [cell.cardLabel setText:[object cardTitle]];
-    [cell.userImage setImage:[UIImage imageWithData:[object cardImage]]];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
 }
 
@@ -104,11 +83,17 @@
         
         pendingRequestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
         
-        if(!cell){
-            cell = [[pendingRequestCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        ABContact *contactObject;
+        
+        if(contactsArray){
+            contactObject = [contactsArray objectAtIndex:indexPath.row];
+        }else{
+            contactObject = [[ABContactsHelper contacts] objectAtIndex:indexPath.row];
         }
         
-        [self configureCell:cell atIndexPath:indexPath];
+        cell.nameLabel.text = [contactObject compositeName];
+        cell.userImage.image = [contactObject image];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
         
@@ -122,76 +107,46 @@
         
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
         
-        requestObject = [_fetchedResultsController objectAtIndexPath:indexPath];
+        ABContact *selectedContact = [[ABContactsHelper contacts] objectAtIndex:indexPath.row];
         
-        meetConfirmationView = [[meetConfirmation alloc] initWithPendingMeet:requestObject];
-        meetConfirmationView.delegate = self;
-        
-        [self.navigationController presentViewController:meetConfirmationView animated:YES completion:Nil];
+        MeetCard *meetCardVC = [[MeetCard alloc] initWithABContactObject:selectedContact];
+        [self.navigationController presentViewController:meetCardVC animated:YES completion:Nil];
         
     }
     
 }
 
-#pragma mark MeetActionDelegate
+#pragma mark SearchBar Delegate
 
--(void)meetConfirmationDidCompleteWithObject:(CDMeets *)meetObject andAction:(meetAction)action{
-    
-    //--- Update the meet request and obtain the card information so we can save it
-    [meetConfirmationView dismissViewControllerAnimated:YES completion:Nil];
-    [Utils changeNotificationStatus:meetObject withStatus:action withCallback:Nil];
-    
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    searchBar.text = @"";
+    contactsArray = Nil;
+    [self.tableView reloadData];
+    [searchBar resignFirstResponder];
 }
 
-#pragma mark NSFetchResultsControllerDelegate
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
-    [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+-(void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
-    UITableView *tableView = self.tableView;
-    
-    switch(type) {
+    if(!searchText || searchText.length==0){
+        
+        contactsArray = Nil;
+        
+    }else{
+        
+        contactsArray = [[NSMutableArray alloc] init];
+        
+        for(ABContact *contactObject in [ABContactsHelper contacts]){
             
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
+            if( [[[contactObject compositeName] lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound ){
+                [contactsArray addObject:contactObject];
+            }
             
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:(pendingRequestCell *)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
+        }
+        
     }
-}
-
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
-    switch(type) {
-            
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
-}
-
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
+    [self.tableView reloadData];
+    
 }
 
 @end
